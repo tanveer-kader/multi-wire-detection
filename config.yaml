@@ -1,0 +1,70 @@
+# Configuration for Multi-Wire Detection Project
+
+# Data Settings
+data:
+  ply_dir: "data/ply_files"
+  label_dir: "data/labels"
+  num_points: 4096              # Reduced for CPU
+  train_split: 0.8
+  random_seed: 42
+  
+# Data Augmentation
+augmentation:
+  enable: true
+  rotation_range: 15
+  jitter_std: 0.01
+  scale_range: [0.9, 1.1]
+  flip_probability: 0.5
+
+# Model Settings
+model:
+  name: "pointnet2_multi"
+  num_classes: 1
+  input_channels: 3
+  use_normals: false
+  max_wires: 6                  # Maximum wires to detect
+  
+# Training Settings
+training:
+  batch_size: 2                 # Small for CPU
+  num_epochs: 50                # Reduced for faster training
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  lr_scheduler: "step"
+  lr_decay_step: 20
+  lr_decay_rate: 0.5
+  
+# Optimizer
+optimizer:
+  type: "adam"
+  momentum: 0.9
+  
+# Loss Settings
+loss:
+  classification_weight: 1.0
+  bbox_weight: 5.0
+  rotation_weight: 2.0
+  
+# Validation
+validation:
+  eval_frequency: 5
+  save_frequency: 10
+  early_stopping_patience: 20
+  
+# Detection Settings
+detection:
+  confidence_threshold: 0.5
+  nms_threshold: 0.3
+  
+# Hardware
+hardware:
+  gpu_id: 0
+  num_workers: 2
+  pin_memory: false             # False for CPU
+  
+# Logging
+logging:
+  log_dir: "runs"
+  checkpoint_dir: "checkpoints"
+  result_dir: "results"
+  print_frequency: 10
