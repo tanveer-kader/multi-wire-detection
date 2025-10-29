@@ -49,7 +49,7 @@ python3 -m venv venv
 source venv/bin/activate  # Windows: venv\Scripts\activate
 
 # Or using conda
-conda create -n multi-wire-detection python=3.8
+conda create -n multi-wire-detection python=3.12.3
 conda activate multi-wire-detection
 ```
 
