@@ -53,6 +53,20 @@ conda create -n multi-wire-detection python=3.12.3
 conda activate multi-wire-detection
 ```
 
+### basic requiements
+```
+torch>=1.13.0
+torchvision>=0.14.0
+numpy>=1.21.0
+scipy>=1.7.0
+plyfile>=0.7.4
+matplotlib>=3.5.0
+tqdm>=4.62.0
+pyyaml>=6.0
+tensorboard>=2.11.0
+scikit-learn>=1.0.0
+```
+
 ### 3. Install Dependencies
 ```bash
 pip install -r requirements.txt
